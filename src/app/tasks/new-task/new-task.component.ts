@@ -14,6 +14,9 @@ export class NewTaskComponent {
   private formEl = viewChild<ElementRef<HTMLFormElement>>('form');
   private taskService = inject(TasksService);
 
+  //using a constructor for an injector token
+  //constructor(@Inject(TaskServiceToken) private taskService: TasksService) {}
+
   onAddTask(title: string, description: string) {
     this.taskService.addTask({ title, description });
     this.formEl()?.nativeElement.reset();
