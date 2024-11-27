@@ -1,7 +1,7 @@
 import { Component, ElementRef, inject, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TasksService } from '../tasks.service';
-import { TaskStatus } from '../task.model';
+
 
 @Component({
   selector: 'app-new-task',

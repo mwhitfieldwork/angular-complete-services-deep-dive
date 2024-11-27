@@ -1,19 +1,26 @@
-import { Component, computed, inject, signal } from '@angular/core';
+/*import { Component, computed, inject, signal } from '@angular/core';
 
 import { TaskItemComponent } from './task-item/task-item.component';
 import { TasksService } from '../tasks.service';
+import { TASK_STATUS_OPTIONS, taskStatusOptionsProvider } from '../task.model';
 
 @Component({
-  selector: 'app-tasks-list',
+  selector: 'app-tasks-wit-notes-list',
   standalone: true,
   templateUrl: './tasks-list.component.html',
   styleUrl: './tasks-list.component.css',
   imports: [TaskItemComponent],
+  providers:[taskStatusOptionsProvider]
+  //providers:[{provide:TASK_STATUS_OPTIONS , useValue:TaskStatusOptions}] 
+  //One Way to inject NON Service Providers
+  //In order to inject the TaskStatusOption you need to use a provider token
+  //USEvALUE: 
 })
-export class TasksListComponent {
+export class TasksListWithNotesComponent {
   private tasksService = inject(TasksService);
   private selectedFilter = signal<string>('all');
   tasks = this.tasksService.allTasks;
+  taskStatusOptions = inject(TASK_STATUS_OPTIONS); //This is provided fo, so we can use it
 
   newTasks = computed(() => {
   switch (this.selectedFilter()) {
@@ -46,3 +53,4 @@ export class TasksListComponent {
     this.selectedFilter.set(filter);
   }
 }
+*/

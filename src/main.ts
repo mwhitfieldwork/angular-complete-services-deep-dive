@@ -1,19 +1,16 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-//import { InjectionToken } from '@angular/core';
-import { AppComponent } from './app/app.component';
+import { InjectionToken } from '@angular/core';
 
-// you can create youre own towke:
-//const TaskServiceToken = new InjectionToken<TaskService>('tasks-service-token');
-//this is the name of the token that needs to be used
+import { AppComponent } from './app/app.component';
+import { TasksService } from './app/tasks/tasks.service';
+
+export const TasksServiceToken = new InjectionToken<TasksService>(
+  'tasks-service-token'
+);
 
 bootstrapApplication(AppComponent, {
-    //providers:[{ provide: TaskServiceToken, useClass: TaskService }]
-    //TheNameOfTheService - is the Depencey Inection token
-    //provides a depencency token
-
-    providers: []// lets angular now that a piece of code is injectable!
-                 //When the prodiver is included herere it will not be apart of angulr tree shaking
-                 // so when it looks to optimize performace, the service provided here will always be
-                 // included, even if not needed
-                 //@injectable with a provider of root is better
+  providers: [{ provide: TasksServiceToken, useClass: TasksService }],
 }).catch((err) => console.error(err));
+// bootstrapApplication(AppComponent).catch(
+//   (err) => console.error(err)
+// );
